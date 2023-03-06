@@ -29,13 +29,13 @@ correspond to the language-specific commands.
 Consider a useful trick:
 
 > When you see a REST API command but don't know it's equivalent in Python, e.g. 
-> [this one](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-put-mapping.html),
+> this one: https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-put-mapping.html,
 > how to find out the python command for it?
 
 Search for back-reference:
 
-- copy the last part of the url: `indices-put-mapping.html`
-- use this search on Google: <\n>
+- copy the last part of your url: `indices-put-mapping.html`
+- use this search on Google: <br />
 `site: https://elasticsearch-py.readthedocs.io/ "indices-put-mapping.html"` where you insert your copied text in the double quotes.
 - This will find this exact text on the website of the Python API. It's convenient that the Python API website usually links the link to the REST API equivalent of each command. So this lets us find the webpage.
 - On this webpage use `ctrl+f` to find the exact position of `indices-put-mapping.html`
