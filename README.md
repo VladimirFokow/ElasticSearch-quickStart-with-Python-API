@@ -122,7 +122,7 @@ es.indices.delete(index=index_name)
 ```python
 # Notes:
 
-# When creating an index, you can also already specify its mapping (and settings, etc. in the `body`):
+# When creating an index you can also already specify its mapping (and other settings that go into `body`):
 mapping = {
     "properties": {
         "field_1": {"type": "text"},
@@ -132,7 +132,7 @@ mapping = {
 es.indices.create(index=index_name, body={"mappings": mapping})
 
 
-# When creating an inde:
+# When creating an index:
 # ignore=400 ignores the 400 cause by IndexAlreadyExistsException when creating an index.
 # in v.7.x - here's the explanation of the `ignore` parameter:
 # https://elasticsearch-py.readthedocs.io/en/7.x/api.html?highlight=elasticsearch.indices#ignore
