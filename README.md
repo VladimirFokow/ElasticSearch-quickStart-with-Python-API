@@ -279,7 +279,7 @@ def doc_generator(df):
         doc = {
             # "_op_type": "index",  # by default, it's "index". Can also be "create", "delete", "update"
             '_index': index_name,
-            '_type': 'document',
+            '_type': '_doc',
             "_id" : idx,
             "_source": filterKeys(row),  # {"field_1": "val1", "field_2": 2312}
         }
