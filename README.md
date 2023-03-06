@@ -172,7 +172,20 @@ print('-- all documents:')
 pp.pprint(
     es.search(index=index_name, body={"query": {"match_all": {}}})
 )
+# can even omit the `body`:
+# es.search(index=index_name, size=4)
 print()
+
+# Do the aggregations:
+data = es.search(index=index_name,
+                 body={
+                    'size': 0,  # to not return any actual documents
+                    'aggs': {
+                        'result_fieldname_min': {'min': {'field': 'existing_field_name'}},
+                        'result_fieldname_max': {'max': {'field': 'existing_field_name'}},
+                    }
+                 })
+data['aggregations']
 ```
 
 <br />
