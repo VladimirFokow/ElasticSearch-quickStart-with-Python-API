@@ -271,11 +271,11 @@ from elasticsearch.helpers import bulk
 
 
 def filterKeys(row):
-    return {k: v for k, v in row.items() if v is not None}
+    # If the value is na, it will not be added to the document:
+    return {k: v for k, v in row.items() if not pd.isna(v)}
 
 def doc_generator(df):
-    df_iter = df.iterrows()
-    for idx, row in df_iter:
+    for idx, row in df.iterrows():
         doc = {
             # "_op_type": "index",  # by default, it's "index". Can also be "create", "delete", "update"
             '_index': index_name,
