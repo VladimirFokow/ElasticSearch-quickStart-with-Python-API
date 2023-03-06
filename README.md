@@ -195,7 +195,7 @@ data['aggregations']
 # # Copy data from an existing index into a new index:
 new_index_name = "my-new-index"
 es.reindex(
-    max_docs=2,  # limit: only copy the 2 first documents
+    max_docs=2,  # limit: only copy 2 documents
     body={
         "source": {
             "index": index_name  # source index
