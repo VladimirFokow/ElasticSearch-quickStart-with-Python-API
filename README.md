@@ -219,7 +219,7 @@ es.indices.put_mapping(
     body=mapping
 )
 
-# can index a document:
+# can also index a document like this:
 es.update(
     index=new_index_name,
     id=2,
@@ -250,11 +250,6 @@ df1 = pd.DataFrame({
     "field_1": ["aa", "bb", "cc"],
     "field_2": [1, 2, 3]
 })
-# A dataframe with the new fields to be added to the documents:
-df2 = pd.DataFrame({
-    "field_3": ["a", "b", "c"],
-    "field_4": [4, 5, 6]
-})
 
 ```
 
@@ -281,7 +276,7 @@ def doc_generator(df):
             '_index': index_name,
             '_type': '_doc',
             "_id" : idx,
-            "_source": filterKeys(row),  # {"field_1": "val1", "field_2": 2312}
+            "_source": filterKeys(row),  # {"field_1": "aa", "field_2": 1}
         }
         yield doc
 
@@ -290,6 +285,4 @@ bulk(es, doc_generator(df1))
 ```
 
 
-```python
 
-```
