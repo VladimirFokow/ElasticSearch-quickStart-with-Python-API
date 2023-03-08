@@ -266,8 +266,9 @@ from elasticsearch.helpers import bulk
 
 
 def filterKeys(row):
-    # If the value is na, it will not be added to the document:
-    return {k: v for k, v in row.items() if not pd.isna(v)}
+    # If the value of a field is na, it will not be added to the document:
+    # (if v is a sequence, include it, even if it consists only of nans)
+    return {k: v for k, v in row.items() if hasattr(v, "__len__") or not pd.isna(v)}
 
 def doc_generator(df):
     for idx, row in df.iterrows():
