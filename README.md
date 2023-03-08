@@ -241,19 +241,32 @@ es.update(
 <br />
 
 
-```python
-# How to send your dataframe to ElasticSearch?
+### How to read data from ElasticSearch to a Pandas dataframe?
 
-# new data in a Pandas dataframe:
+```python
 import pandas as pd
+from pandas import json_normalize
+
+data = es.search(index=index_name,
+                 size=2,  # return only 2 documents (for speed purposes)
+                 body={
+                    "query": {"match_all": {}}
+                 })
+
+df = json_normalize([dict(x['_source'], **{'_id': x['_id']}) for x in data['hits']['hits']]).set_index('_id')
+```
+
+<br />
+
+
+### How to save a dataframe to ElasticSearch?
+
+```python
 df1 = pd.DataFrame({
     "field_1": ["aa", "bb", "cc"],
     "field_2": [1, 2, 3]
 })
-
 ```
-
-
 ```python
 # bulk update
 from elasticsearch.helpers import bulk
@@ -282,7 +295,6 @@ def doc_generator(df):
         yield doc
 
 bulk(es, doc_generator(df1))
-
 ```
 
 
