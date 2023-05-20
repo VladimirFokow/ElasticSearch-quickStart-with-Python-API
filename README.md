@@ -1,7 +1,6 @@
-# Introduction to the Elasticsearch Python client: <br /> https://elasticsearch-py.readthedocs.io/
+# Unofficial introduction to using the Elasticsearch Python client: <br /> https://elasticsearch-py.readthedocs.io/
 
-(unofficial) <br />
-(warning: commands of Elasticsearch versions 7 and 8 could be both blended in here, but I mainly tried to use v. 8)
+(note: I could mix the commands of ElasticSearch versions 7 and 8 here, didn't pay much attention to that)
 
 <br />
 
