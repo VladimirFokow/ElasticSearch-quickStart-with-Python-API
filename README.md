@@ -1,4 +1,4 @@
-# Unofficial introduction to using the Elasticsearch Python client: <br /> https://elasticsearch-py.readthedocs.io/
+# (Unofficial) introduction to using the Elasticsearch Python client: <br /> https://elasticsearch-py.readthedocs.io/
 
 (note: I could mix the commands of ElasticSearch versions 7 and 8 here, didn't pay much attention to that)
 
@@ -27,7 +27,7 @@ correspond to the language-specific commands.
 
 Consider a useful trick:
 
-> When you see a REST API command but don't know it's equivalent in Python, e.g. 
+> When you see a REST API command but don't know its equivalent in Python, e.g. 
 > this one: https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-put-mapping.html,
 > how to find out the python command for it?
 
