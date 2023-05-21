@@ -1,0 +1,22 @@
+name: Convert README.ipynb to README.md
+on:
+  push:    
+    branches:
+      - test-action
+    paths:
+      - 'README.ipynb'
+
+jobs:
+  build:
+    name: autopy-lot
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: autopy-lot 
+        uses: deep5050/autopy-lot@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          check: 'latest'
+          input_type: 'ipynb'
+          output_type: 'markdown'
+          output_dir: './'
