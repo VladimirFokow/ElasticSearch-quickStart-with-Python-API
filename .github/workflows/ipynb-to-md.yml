@@ -11,9 +11,7 @@ jobs:
     name: autopy-lot
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-        with:
-          ref: test-action
+      - uses: actions/checkout@v3
       - name: autopy-lot 
         uses: deep5050/autopy-lot@master
         with:
@@ -22,10 +20,3 @@ jobs:
           input_type: 'ipynb'
           output_type: 'markdown'
           output_dir: './autopy-lot/'
-      - name: Commit and push changes
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add .
-          git commit -m "Convert README.ipynb to README.md"
-          git push
