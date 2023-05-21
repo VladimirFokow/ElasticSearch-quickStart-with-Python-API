@@ -18,5 +18,5 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           check: 'latest'
           input_type: 'ipynb'
-          output_type: 'markdown'
-          output_dir: './'
+          output_type: 'py'
+          output_dir: './autopy-lot/'
