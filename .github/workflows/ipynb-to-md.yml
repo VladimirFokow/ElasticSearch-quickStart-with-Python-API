@@ -11,7 +11,9 @@ jobs:
     name: autopy-lot
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
+        with:
+          ref: test-action
       - name: autopy-lot 
         uses: deep5050/autopy-lot@master
         with:
