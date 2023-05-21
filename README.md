@@ -1,9 +1,8 @@
 
-test 10
+test 11
 
-# (Unofficial) introduction to using the Elasticsearch Python client: <br /> https://elasticsearch-py.readthedocs.io/
-
-(note: I could mix the commands of ElasticSearch versions 7 and 8 here, didn't pay much attention to that)
+(unofficial)
+# Introduction to using the Elasticsearch Python client:
 
 <br />
 
@@ -23,6 +22,12 @@ correspond to the language-specific commands.
 **So this repository gives an introduction to the most basic Python Client commands for ElasticSearch.**
 
 ---
+
+<br /><br />
+
+python elasticsearch client docs: https://elasticsearch-py.readthedocs.io/
+
+(note: I could mix the commands of ElasticSearch versions 7 and 8 here, didn't pay much attention to that)
 
 <br />
 
