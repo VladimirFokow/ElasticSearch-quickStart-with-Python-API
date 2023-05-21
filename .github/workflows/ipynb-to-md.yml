@@ -28,6 +28,9 @@ jobs:
           git add README.md
           git commit -m "Automatically converted .ipynb to .md" --author "GitHub Actions <actions@github.com>"
 
+      - name: Pull changes
+        run: git pull --rebase origin ${{ github.ref }}
+        
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
