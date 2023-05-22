@@ -25,7 +25,7 @@ jobs:
 
       - name: Convert .ipynb to .md
         run: |
-          jupytext --to md --update-metadata {"jupytext": {"notebook_metadata_filter": "-all"}} README.ipynb
+          jupytext --to md --update-metadata '{"jupytext": {"notebook_metadata_filter": "-all"}}' README.ipynb
 
       - name: Commit changes
         run: |
