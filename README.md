@@ -1,6 +1,3 @@
-test 21
-
-
 # Introduction to using the Elasticsearch Python client:
 (unofficial)
 
