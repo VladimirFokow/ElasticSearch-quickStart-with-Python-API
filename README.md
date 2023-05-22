@@ -1,11 +1,27 @@
+---
+jupyter:
+  jupytext:
+    text_representation:
+      extension: .md
+      format_name: markdown
+      format_version: '1.3'
+      jupytext_version: 1.14.5
+  kernelspec:
+    display_name: venv_sunrise_dashboard
+    language: python
+    name: python3
+---
 
-test 16
+test 19
+
 
 (unofficial)
 # Introduction to using the Elasticsearch Python client:
 
+
 <br />
 
+<!-- #region -->
 # Motivation for this repository:
 There exists a great
 [Beginner's Crash Course to Elastic Stack](https://github.com/LisaHJung/Beginners-Crash-Course-to-Elastic-Stack-Series-Table-of-Contents) 
@@ -56,11 +72,12 @@ original REST API from Python with the help of `requests` library.
 
 ---
 
+<!-- #endregion -->
 
 <br /><br />
 
-## The Python Client basic TUTORIAL:
 
+## The Python Client basic TUTORIAL:
 
 ```python
 # Make sure the package `elasticsearch` is installed:
@@ -68,7 +85,6 @@ original REST API from Python with the help of `requests` library.
 ```
 
 <br />
-
 
 ```python
 # Import:
@@ -79,7 +95,6 @@ import pprint
 pp = pprint.PrettyPrinter()
 ```
 
-
 ```python
 # Assumming the ElasticSearch database is already running on localhost:9200,
 # Instance of the Elasticsearch client:
@@ -89,14 +104,12 @@ es = Elasticsearch('localhost:9200')
 # es = Elasticsearch(['localhost'], port=9200)
 ```
 
-
 ```python
 # List all indices in a cluster:
 print(es.cat.indices(v=True, s='health'))  # v=True -> show headings, s='health' -> sort by health
 ```
 
 <br />
-
 
 ```python
 # CRUD operations:
@@ -124,7 +137,6 @@ es.delete(index=index_name, id=1)
 # delete an index
 es.indices.delete(index=index_name)
 ```
-
 
 ```python
 # Notes:
@@ -158,8 +170,7 @@ es.index(index=index_name, id=1, body={"field_1": "value_1", "field_2": 2})
 
 <br />
 
-
-```python
+````python
 # See the mapping of an index:
 print('-- mapping:')
 pp.pprint(
@@ -194,10 +205,9 @@ data = es.search(index=index_name,
                  })
 data['aggregations']
 ```
-```
+````
 
 <br />
-
 
 ```python
 # # Copy data from an existing index into a new index:
@@ -248,8 +258,8 @@ es.update(
 
 <br />
 
-### How to read data from ElasticSearch to a Pandas dataframe?
 
+### How to read data from ElasticSearch to a Pandas dataframe?
 
 ```python
 import pandas as pd
@@ -266,9 +276,9 @@ df = json_normalize([dict(x['_source'], **{'_id': x['_id']}) for x in data['hits
 
 <br />
 
+
 #### More advanced (no limit of 10_000 docs):
 (ES version 7.13)
-
 
 ```python
 def read_ES_to_df(es: Elasticsearch,
@@ -408,8 +418,8 @@ return df
 
 <br />
 
-### How to save a dataframe to ElasticSearch?
 
+### How to save a dataframe to ElasticSearch?
 
 ```python
 df1 = pd.DataFrame({
@@ -417,7 +427,6 @@ df1 = pd.DataFrame({
     "field_2": [1, 2, 3]
 })
 ```
-
 
 ```python
 # bulk update
