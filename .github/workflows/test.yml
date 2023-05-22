@@ -24,7 +24,8 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Convert .ipynb to .md
-        run: jupytext --to markdown README.ipynb
+        run: |
+          jupytext --to md --update-metadata {"jupytext": {"notebook_metadata_filter": "-all"}} README.ipynb
 
       - name: Commit changes
         run: |
