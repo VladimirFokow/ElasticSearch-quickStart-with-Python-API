@@ -24,9 +24,11 @@ correspond to the language-specific commands.
 
 <br /><br />
 
-python elasticsearch client docs: https://elasticsearch-py.readthedocs.io/
+- python elasticsearch client docs: https://elasticsearch-py.readthedocs.io/
 
-(note: I could mix the commands of ElasticSearch versions 7 and 8 here, didn't pay much attention to that)
+- warning: I could mix up commands from ElasticSearch versions 7 and 8 here. Didn't pay much attention to that..
+
+- (note: to update this readme - change README.ipynb, and the github action will automatically generate the markdown README.md from it. Any changes to README.md will be overwritten)
 
 <br />
 
