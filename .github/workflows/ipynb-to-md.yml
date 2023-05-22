@@ -2,8 +2,6 @@ name: Convert README.ipynb to README.md
 
 on:
   push:
-    branches:
-      - test-action
     paths:
       - 'README.ipynb'
 
@@ -34,7 +32,7 @@ jobs:
           git add README.md
           git commit -m "Automatically converted .ipynb to .md" --author "GitHub Actions <actions@github.com>"  || exit 0
 
-      - name: Pull changes
+      - name: Pull any additional changes  (and rebase)
         run: git pull --rebase origin ${{ github.ref }}
         
       - name: Push changes
