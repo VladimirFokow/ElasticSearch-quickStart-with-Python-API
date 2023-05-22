@@ -8,8 +8,11 @@ on:
       - 'README.ipynb'
 
 jobs:
-  convert-to-readme:
+  convert-readme--nbconvert:
     runs-on: ubuntu-latest
+
+    container:
+      image: jgoldfar/pandoc-nbconvert-docker
 
     steps:
       - name: Checkout code
@@ -18,14 +21,9 @@ jobs:
           persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal access token.
           fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
 
-      - name: Jupyter Notebooks to Markdown
-        uses: VladimirFokow/Jupyter-to-Markdown@v1
+      - name: Convert .ipynb to .md
+        run: jupyter nbconvert --to markdown README.ipynb
 
-
-
-
-
-        
       - name: Commit changes
         run: |
           git config --global user.name "GitHub Actions"

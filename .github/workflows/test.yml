@@ -8,7 +8,7 @@ on:
       - 'README.ipynb'
 
 jobs:
-  convert-to-readme:
+  convert-readme--autopy-lot:
     runs-on: ubuntu-latest
     
     steps:
@@ -18,19 +18,19 @@ jobs:
           persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal access token.
           fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
 
-      - name: using autopy-lot (.ipynb conversion)
+      - name: autopy-lot (doing .ipynb conversion)
         uses: deep5050/autopy-lot@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          input_type: 'ipynb'
-          output_type: 'py'
-          output_dir: './'
+          input_type: ipynb
+          output_type: markdown
+          output_dir: ./autopy-lot/
 
       - name: Commit changes
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
-          git add README.md
+          git add .
           git commit -m "Automatically converted .ipynb to .md" --author "GitHub Actions <actions@github.com>"
 
       - name: Pull changes
