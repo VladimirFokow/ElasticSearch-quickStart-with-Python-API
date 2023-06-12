@@ -87,6 +87,10 @@ es = Elasticsearch('localhost:9200')
 
 # Alternatively,
 # es = Elasticsearch(['localhost'], port=9200)
+
+# Check connection:
+if not es.ping():
+    raise ValueError("Connection failed")
 ```
 
 ```python
