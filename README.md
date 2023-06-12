@@ -260,7 +260,28 @@ data = es.search(index=index_name,
                     "query": {"match_all": {}}
                  })
 
-df = json_normalize([dict(x['_source'], **{'_id': x['_id']}) for x in data['hits']['hits']]).set_index('_id')
+def _ES_data_to_df(data: dict) -> pd.DataFrame:
+   """
+   Convert the JSON response from ES search to a DataFrame.
+
+   Parameters
+   ----------
+   data : dict
+      Data from ES search query.
+   
+   Returns
+   -------
+   df : pd.DataFrame
+      DataFrame containing all the data from `_source`, 
+      and with ids from `_id`.
+   """
+   if not data['hits']['hits']:
+      return pd.DataFrame()
+   df = pd.json_normalize([dict(hit['_source'], **{'_id': hit['_id']})
+                           for hit in data['hits']['hits']]).set_index('_id')
+   return df
+
+df = _ES_data_to_df(data)
 ```
 
 <br />
